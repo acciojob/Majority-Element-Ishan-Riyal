@@ -29,27 +29,21 @@
   <div id="result"></div>
 
   <script>
-    // Boyer-Moore Voting Algorithm
-    function majorityElement(nums) {
-      let candidate = null;
-      let count = 0;
-      for (let num of nums) {
-        if (count === 0) {
-          candidate = num;
-        }
-        count += (num === candidate) ? 1 : -1;
-      }
-      return candidate;
-    }
-
     function findMajority() {
       const input = document.getElementById("arrayInput").value;
       const nums = input.split(",").map(x => parseInt(x.trim(), 10));
-      const result = majorityElement(nums);
-      document.getElementById("result").innerText =
-        "Majority Element: " + result;
+      const counts = {};
+      const n = nums.length;
+
+      for (let num of nums) {
+        counts[num] = (counts[num] || 0) + 1;
+        if (counts[num] > Math.floor(n / 2)) {
+          document.getElementById("result").innerText =
+            "Majority Element: " + num + " (appears " + counts[num] + " times)";
+          return;
+        }
+      }
     }
   </script>
 </body>
 </html>
-
