@@ -1,49 +1,16 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
-  <title>Majority Element Finder</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
-    }
-    input, button {
-      padding: 8px;
-      margin: 5px;
-      font-size: 16px;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-  </style>
+	<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <h1>Majority Element Finder</h1>
-  <p>Enter an array (comma-separated):</p>
-  <input type="text" id="arrayInput" placeholder="e.g. 2,1,2">
-  <button onclick="findMajority()">Find Majority</button>
+	<!-- the entire body must be written by student -->
+    <script type="text/javascript" src="./script.js">
+   </script>
 
-  <div id="result"></div>
-
-  <script>
-    function findMajority() {
-      const input = document.getElementById("arrayInput").value;
-      const nums = input.split(",").map(x => parseInt(x.trim(), 10));
-      const counts = {};
-      const n = nums.length;
-
-      for (let num of nums) {
-        counts[num] = (counts[num] || 0) + 1;
-        if (counts[num] > Math.floor(n / 2)) {
-          document.getElementById("result").innerText =
-            "Majority Element: " + num + " (appears " + counts[num] + " times)";
-          return;
-        }
-      }
-    }
-  </script>
 </body>
+
 </html>
